@@ -24,11 +24,14 @@ def simulate(num_agents, p, q, m, t):
     population = [Agent(p, q, m, list(range(num_agents))) for i in range(num_agents)]
     for i, agent in enumerate(population):
         agent.friends = random.sample(population[:i]+population[i+1:], k=random.randint(1, len(population)-1)) # the list (array) is being repopulated by the same number of friends
-    heard_count = 0
-    for agent in population:
-        if agent.hear(t):
-            heard_count += 1
-    return heard_count
+    heard_count_list = list()
+    for day in range(t):
+        heard_count = 0
+        for agent in population:
+            if agent.hear(t):
+                heard_count += 1
+        heard_count_list.append(heard_count)
+    return heard_count_list
     
     
 if __name__ == "__main__":
