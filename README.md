@@ -2,9 +2,12 @@
 The Bass diffusion model consists of a differential equation that describes the adoption of a new product in a population by considering how adopters and potential adopters of a product interact.
 
 The agent class has the following attributes:
-p: the coefficient of innovation, which reflects the tendency of an individual to adopt the product independently of influence from her peers. This might be due to the advertising efforts or simply naturally
-q: the coefficient of imitation, which reflects the tendency of an individual to adopt the product owing to imitation of her friends or hearing about the product from them
-m: the number of friends that an agent has
+
+`p`: the coefficient of innovation, which reflects the tendency of an individual to adopt the product independently of influence from her peers. This might be due to the advertising efforts or simply naturally
+
+`q`: the coefficient of imitation, which reflects the tendency of an individual to adopt the product owing to imitation of her friends or hearing about the product from them
+
+`m`: the number of friends that an agent has
 
 Line `cumulative_bass += friend.p + (friend.q * 1 / friend.m)` calculates the cumulative bass coefficient for a given individual. The Bass coefficient is a mathematical parameter used in the model to capture the effect of social influence on the adoption of a new product or idea. `friend.q * 1 / friend.m` reflects the idea that individuals are less likely to be influenced by a large number of acquaintances than by a smaller, more intimate group
 of friends. By adding up the Bass coefficients of all friends of the current individual, the `cumulative_bass` variable keeps track of the overall influence of social connections on the current individual's decision to adopt the new product. The resulting value is then used in the formula to calculate the probability of the current agent hearing about the product.
