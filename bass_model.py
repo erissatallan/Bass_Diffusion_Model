@@ -1,4 +1,5 @@
 import random
+import matplotlib.pyplot as plt
 
 class Agent:
     def __init__(self, p, q, m, population):
@@ -35,4 +36,9 @@ def simulate(num_agents, p, q, m, t):
     
     
 if __name__ == "__main__":
-    print(simulate(1000, 0.03, 0.38, 50, 5))
+    simulation_results = simulate(1000, 0.03, 0.38, 50, 5)
+    plt.plot(range(len(simulation_results)), simulation_results)
+    plt.title("Number of adopters at day t")
+    plt.xlabel("Day")
+    plt.ylabel("Number of adopters")
+    plt.show()
